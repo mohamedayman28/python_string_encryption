@@ -4,7 +4,7 @@ class SecretMessage:
     def __init__(self, msg):
         self.msg = msg
 
-    def shift_encryption(self):
+    def shift_encryption(self, encrypted=False):
         """ Method to shift every letter by 3 letter."""
         encrypted_msg = ''
 
@@ -18,18 +18,25 @@ class SecretMessage:
         ]
 
         for letter in self.msg:
+
+            steps = 3
+            # If message is encrypted already.
+            if encrypted:
+                # decrypt it.
+                steps = -3
+
             # Uppercase letter.
             if letter in upper_letters:
                 # Index that character.
                 index = upper_letters.index(letter)
-                # Shift by 3 steps.
-                crypting = (index + 3) % 26
+                # Shift by steps.
+                crypting = (index + steps) % 26
                 # Form the encrypted msg.
                 encrypted_msg += upper_letters[crypting]
             # Lowercase letter.
             elif letter in lower_letters:
                 index = lower_letters.index(letter)
-                crypting = (index + 3) % 26
+                crypting = (index + steps) % 26
                 encrypted_msg += lower_letters[crypting]
             else:
                 # Add else characters as it is (ex: !!).
