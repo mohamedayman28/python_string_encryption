@@ -1,14 +1,32 @@
 # Python String Encryption
 
+## How to run the project
+* I use Python version 3.6
+* so run **python3.6**
+
 ## Overview
 The goal of this project is to implement encryption and decryption algorithms for strings. The project consists of two widely known encryption algorithms [Ceasar encryption](https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/) and [Hill Cipher encryption](https://www.geeksforgeeks.org/hill-cipher/) along with their decryption.
 
-Hill Cipher
+### Ceasar(shift) Encryption
+I use this [code](https://www.w3resource.com/python-exercises/string/python-data-type-string-exercise-25.php) from w3school as base code for the shift algorithm.
 
-I stack to the point of implement the Hill Cipher in Python, and since my background is within Backend it took me time to understand the Algebra behind the Algorithm, but here is my walkthrough before the stack:
+### Hill Cipher(matrix) Encryption
 
-Looking-up "Matrix Encryption Algorithm", it called the Hill Cipher Encryption wich base on the Matrix Algebra, the Cipher consists of 3 elements:
-* Indexed English chracters, which starts from 0 to 25.
-* The key, which should be a square of integer (n squared).
-* Column of numbers, as each number corresponde to number of indexed English chracters e.g.a=0, b=1, ... z=25 .
-* Base 24 (n mod 24).
+My mathematical background not behind the basics which took me much time to understand the Algebra behind this Cipher, I do understand how to solve the Matrix Algebras but I get stuck at the task implementation point, anyway, here is how I managed to solve the Hill Cipher Algorithm before getting to the stuck point:
+
+**Look up.**
+It's named the Hill Cipher Encryption which bases on the Matrix Algebra.
+  
+**Understand.**
+* The Algorithm consists of 4 aspects:
+  * Indexed English chracters, which starts from 0 to 25.
+  * Key (password), which should be a square of integer (n squared).
+  * Column of numbers, each number corresponde to the indexed English chracters.
+  * Base 24 (n mod 24).
+    
+* **Implement.**
+  * I use this GeeksForGeeks [example](https://www.geeksforgeeks.org/hill-cipher/).
+  * Along with the old-school way, paper and pen.
+  * Since i don't have mathmitcal background I came a cross a question which consumes more time:
+    **Q**: What if the length of the colum elements shorter or longer that the virtical length.
+    **A**: The last element of the column will be repeated to match the Matrix virticallyso if Key is 'GYBNQKURP'(matrix of 3) and Text is 'AC'(column of 2), Text will be 'ACC'(column of 3).
